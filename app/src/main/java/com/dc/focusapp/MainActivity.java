@@ -1,32 +1,32 @@
 package com.dc.focusapp;
 
-import android.annotation.SuppressLint;
-import android.graphics.Color;
-import android.graphics.Typeface;
+import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.os.Handler;
-import android.view.MotionEvent;
-import android.view.View;
 import android.view.WindowManager;
-import android.widget.TextView;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
 public class MainActivity extends AppCompatActivity {
+  private ViewPager viewPager;
+  private final List<String> dummyTasks =
+      Arrays.asList("Meditate", "Exercise at the park", "Put on washing", "Do dishes");
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
     setContentView(R.layout.activity_main);
 
-    Typeface typeface = Typeface.createFromAsset(getAssets(), "RobotoCondensed-LightItalic.ttf");
-
-    TextView text = (TextView) findViewById(R.id.fullscreen_content);
-    text.setTypeface(typeface);
+    TaskPagerAdapter adapter = new TaskPagerAdapter(getSupportFragmentManager(), dummyTasks);
+    viewPager = (ViewPager) findViewById(R.id.pager);
+    viewPager.setAdapter(adapter);
 
     // Hide UI first
     ActionBar actionBar = getSupportActionBar();
