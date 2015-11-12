@@ -22,10 +22,7 @@ public class TaskFragment extends Fragment {
     TextView textView = (TextView) view.findViewById(R.id.task_name);
     textView.setText(args.getString(NAME));
     textView.setBackgroundColor(Color.parseColor(args.getString(COLOR)));
-
-    Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(),
-        "RobotoCondensed-LightItalic.ttf");
-    textView.setTypeface(typeface);
+    textView.setTypeface(Util.getTypeface(getActivity()));
 
     return view;
   }
