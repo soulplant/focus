@@ -5,7 +5,7 @@
              android:background="#ffffff"
              tools:context=".MainActivity">
 
-    <android.support.v4.view.ViewPager
+    <com.dc.focusapp.ViewPager
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/pager"
         android:layout_width="match_parent"
